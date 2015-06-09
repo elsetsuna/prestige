@@ -20,14 +20,11 @@
 </head>
 
 <body>
-  
 <div class="account-container">
   
-  <div class="content clearfix">
-    
+  <div class="content clearfix" align="center">
+      <img src="img/admin_login_icon.png" align="center"></img> 
     <form method="post" action="index.php" name="loginform">
-    
-      <h1>Member Login</h1>   
       
       <div class="login-fields">
         
@@ -63,28 +60,15 @@ if (isset($login)) {
         
         <span class="login-checkbox">
           <input id="Field" name="Field" type="checkbox" class="field login-checkbox" value="First Choice" tabindex="4" />
-          <label class="choice" for="Field">Keep me signed in</label>
         </span>
                   
-        <button class="button btn btn-success btn-large" type="submit" name="login">Sign In</button>
-        
+        <button class="button btn btn-success btn-large" type="submit" name="login">Sign In</button>  
       </div> <!-- .actions -->
-      
-      
-      
     </form>
     
   </div> <!-- /content -->
   
 </div> <!-- /account-container -->
-
-
-
-<div class="login-extra">
-  <a href="#">Reset Password</a>
-</div> <!-- /login-extra -->
-
-
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/bootstrap.js"></script>
 
