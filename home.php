@@ -3,6 +3,10 @@ if ($_GET['module']=='setrate'){
 include "tprestige/srate.php";}
     elseif ($_GET['module']=='tprestige'){
     include "tprestige/tprestige.php";}
+        elseif ($_GET['module']=='checkpoint'){
+    include "tprestige/checkpoint.php";}
+            elseif ($_GET['module']=='confirmcheckpoint'){
+    include "tprestige/confirmcheckpoint.php";}
 elseif ($_GET['module']=='earnpoint'){
   include "tprestige/earnpoint.php";}
   elseif ($_GET['module']=='cearnpoint'){

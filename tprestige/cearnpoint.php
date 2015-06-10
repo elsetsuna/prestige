@@ -110,7 +110,7 @@ echo '<div class="container">
 <font size="3">Taipan Prestige Card id : <b>'.$_POST['card'].' </b></br>
 Invoice Number : <b>'.$_POST['invoiceno'].'</b></br>
 Sales Amount : <b>'.$_POST['amount'].'</b></br>
-Point Earned : <b>'.$epoint.'</b></br></point>
+Point Earned : <b>'.$epoint.'</b></br></font>
 <form action="?module=checkearnpoint" method="post">
 <input type="hidden" name="cardid" value="'.$cardc.'">
 <input type="hidden" name="invoiceno" value="'.$invoicec.'">
