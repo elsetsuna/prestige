@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2015 at 09:39 PM
+-- Generation Time: Jun 10, 2015 at 10:32 AM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `card` (
   `card_id` int(11) NOT NULL,
   `card_owner` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `card`
@@ -49,7 +49,8 @@ INSERT INTO `card` (`id`, `card_id`, `card_owner`, `status`) VALUES
 (9, 1231241, '', 1),
 (10, 1231242, '', 1),
 (11, 2147483647, '', 1),
-(12, 2147483647, '', 1);
+(12, 2147483647, '', 1),
+(13, 1231250, '', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +125,8 @@ CREATE TABLE IF NOT EXISTS `points` (
 INSERT INTO `points` (`card_id`, `t_point`, `a_point`, `u_point`) VALUES
 (1231242, 0, 0, 0),
 (2147483647, 0, 0, 0),
-(2147483647, 0, 0, 0);
+(2147483647, 0, 0, 0),
+(1231250, 35, 35, 0);
 
 -- --------------------------------------------------------
 
@@ -141,7 +143,7 @@ CREATE TABLE IF NOT EXISTS `rate` (
 --
 
 INSERT INTO `rate` (`rates`) VALUES
-(2147483647);
+(100000);
 
 -- --------------------------------------------------------
 
@@ -173,14 +175,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `user_password_hash` varchar(255) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s password in salted and hashed format',
   `user_email` varchar(64) COLLATE utf8_unicode_ci NOT NULL COMMENT 'user''s email, unique',
   `logintime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data' AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='user data' AUTO_INCREMENT=3 ;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`, `logintime`) VALUES
-(1, 'qwe', '$2y$10$E6d2UYu/Du4ijB3y7udnIuVBzY9Vl/A5W5w5RRcCJ5qXTufiWcsK6', 'qwe@asd.com', '2015-06-09 17:31:28');
+(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-10 08:27:35'),
+(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-10 08:27:35');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +233,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `card`
 --
 ALTER TABLE `card`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `member`
 --
@@ -255,7 +258,7 @@ MODIFY `ssid_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index',AUTO_INCREMENT=2;
+MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'auto incrementing user_id of each user, unique index',AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
