@@ -1,12 +1,14 @@
 <?php
 if ($_GET['module']=='setrate'){
-include "srate.php";}
+include "tprestige/srate.php";}
+    elseif ($_GET['module']=='tprestige'){
+    include "tprestige/tprestige.php";}
 elseif ($_GET['module']=='earnpoint'){
-  include "earnpoint.php";}
+  include "tprestige/earnpoint.php";}
   elseif ($_GET['module']=='cearnpoint'){
-  include "cearnpoint.php";}
+  include "tprestige/cearnpoint.php";}
     elseif ($_GET['module']=='checkearnpoint'){
-  include "checkearnpoint.php";}
+  include "tprestige/checkearnpoint.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }

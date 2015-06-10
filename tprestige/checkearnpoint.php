@@ -13,5 +13,5 @@ $ftpoint = $tpoint + $epointz ;
 //echo ''.$fapoint.'<br>';
 //echo ''.$ftpoint.'';
 mysql_query("UPDATE points SET t_point='$ftpoint',a_point='$fapoint' WHERE card_id='$cardidz'");
-header('Location: http://localhost/taipan2/index.php?module=earnpoint');
+header('Location: http://localhost/taipan/index.php?module=earnpoint');
 ?>
