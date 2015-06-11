@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2015 at 10:32 AM
+-- Generation Time: Jun 11, 2015 at 07:12 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `card` (
   `card_id` int(11) NOT NULL,
   `card_owner` varchar(255) NOT NULL,
   `status` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
 -- Dumping data for table `card`
@@ -50,7 +50,8 @@ INSERT INTO `card` (`id`, `card_id`, `card_owner`, `status`) VALUES
 (10, 1231242, '', 1),
 (11, 2147483647, '', 1),
 (12, 2147483647, '', 1),
-(13, 1231250, '', 1);
+(13, 1231250, '', 1),
+(14, 1231251, '', 1);
 
 -- --------------------------------------------------------
 
@@ -98,12 +99,21 @@ INSERT INTO `navbar` (`id`, `sort_id`, `nav_name`, `nav_icon`, `nav_link`, `stat
 --
 
 CREATE TABLE IF NOT EXISTS `point_log` (
-`id` int(11) NOT NULL,
+`no` int(11) NOT NULL,
   `card_id` int(11) NOT NULL,
   `invoice_no` int(11) NOT NULL,
   `sales_amount` int(11) NOT NULL,
-  `point_get` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `point_get` int(11) NOT NULL,
+  `point_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `point_log`
+--
+
+INSERT INTO `point_log` (`no`, `card_id`, `invoice_no`, `sales_amount`, `point_get`, `point_date`) VALUES
+(1, 1231251, 123123, 1700000, 17, '0000-00-00 00:00:00'),
+(2, 1231251, 1231234, 900000, 9, '2015-06-11 09:07:35');
 
 -- --------------------------------------------------------
 
@@ -123,10 +133,8 @@ CREATE TABLE IF NOT EXISTS `points` (
 --
 
 INSERT INTO `points` (`card_id`, `t_point`, `a_point`, `u_point`) VALUES
-(1231242, 0, 0, 0),
-(2147483647, 0, 0, 0),
-(2147483647, 0, 0, 0),
-(1231250, 35, 35, 0);
+(1231250, 100, 35, 65),
+(1231251, 26, 26, 0);
 
 -- --------------------------------------------------------
 
@@ -182,8 +190,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`, `logintime`) VALUES
-(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-10 08:27:35'),
-(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-10 08:27:35');
+(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-11 08:47:50'),
+(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-11 08:47:50');
 
 --
 -- Indexes for dumped tables
@@ -211,7 +219,13 @@ ALTER TABLE `navbar`
 -- Indexes for table `point_log`
 --
 ALTER TABLE `point_log`
- ADD PRIMARY KEY (`id`);
+ ADD PRIMARY KEY (`no`);
+
+--
+-- Indexes for table `points`
+--
+ALTER TABLE `points`
+ ADD PRIMARY KEY (`card_id`);
 
 --
 -- Indexes for table `session`
@@ -233,7 +247,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `card`
 --
 ALTER TABLE `card`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `member`
 --
@@ -248,7 +262,7 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `point_log`
 --
 ALTER TABLE `point_log`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `session`
 --

@@ -13,5 +13,6 @@ $ftpoint = $tpoint + $epointz ;
 //echo ''.$fapoint.'<br>';
 //echo ''.$ftpoint.'';
 mysql_query("UPDATE points SET t_point='$ftpoint',a_point='$fapoint' WHERE card_id='$cardidz'");
+mysql_query("INSERT INTO point_log (card_id,invoice_no,sales_amount,point_get,point_date) VALUES ('$cardidz','$invoicenoz','$amountz','$epointz',now())"); 
 header('Location: http://localhost/taipan/index.php?module=earnpoint');
 ?>
