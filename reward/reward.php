@@ -17,7 +17,7 @@ input{
   border-radius: 3px;
 }
 .shortcuts .shortcut { 
-  width: 100%;
+  width: 45%;
 
 }
 </style>

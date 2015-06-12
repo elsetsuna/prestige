@@ -1,14 +1,14 @@
 <?php
 echo '
-<div class="span2">
+<div class="span3">
           <div class="widget">
-            <div class="widget-header"> <font size="5" face="calibri"><i class="icon-credit-card" style="font-size: 25px"></i>
-               &nbsp;Taipan Prestige</font>
+            <div class="widget-header"><i class="icon-gift"></i>
+               &nbsp;<h3>Reward Menu</h3>
             </div>
             <div class="widget-content">
- <div class="shortcuts"> <a href="?module=earnpoint" class="shortcut"><i class="shortcut-icon icon-star-empty"></i><span
-                                        class="shortcut-label">Earn Point</span> </a><br><a href="?module=checkpoint" class="shortcut"><i
-                                            class="shortcut-icon icon-search"></i><span class="shortcut-label">Check Point</span> </a>
+ <div class="shortcuts"> <a href="" class="shortcut"><i class="shortcut-icon icon-th-list"></i><span
+                                        class="shortcut-label">Reward Category</span> </a><a href="?module=checkpoint" class="shortcut"><i
+                                            class="shortcut-icon icon-gift "></i><span class="shortcut-label">Reward</span> </a>
               <!-- /shortcuts --> 
             </div>
         </p>

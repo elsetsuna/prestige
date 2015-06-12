@@ -31,7 +31,7 @@ echo '
         <li><a href="?module=tprestige"> <i class="icon-credit-card"></i><span>Taipan Prestige</span></a>
         </li>
         <li><a href="#"><i class="icon-group"></i><span>Membership</span> </a></li>
-        <li><a href=""><i class="icon-gift "></i><span>Rewards</span> </a> </li>
+        <li><a href="?module=reward"><i class="icon-gift "></i><span>Rewards</span> </a> </li>
         <li ><a href="?module=card"><i class="icon-credit-card"></i><span>Cards</span></a></li>
       </ul>
     </div>

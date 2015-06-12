@@ -1,6 +1,6 @@
 <?php
 echo '
-<div class="span10">
+<div class="span9">
           <div class="widget">
             <div class="widget-header"> <i class="icon-bookmark"></i>
               <h3>Taipan Prestige SubMenu</h3>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 11, 2015 at 07:12 PM
+-- Generation Time: Jun 12, 2015 at 09:19 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -104,16 +104,15 @@ CREATE TABLE IF NOT EXISTS `point_log` (
   `invoice_no` int(11) NOT NULL,
   `sales_amount` int(11) NOT NULL,
   `point_get` int(11) NOT NULL,
-  `point_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+  `point_date` date NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `point_log`
 --
 
 INSERT INTO `point_log` (`no`, `card_id`, `invoice_no`, `sales_amount`, `point_get`, `point_date`) VALUES
-(1, 1231251, 123123, 1700000, 17, '0000-00-00 00:00:00'),
-(2, 1231251, 1231234, 900000, 9, '2015-06-11 09:07:35');
+(4, 1231251, 1231235, 100000000, 1000, '2015-06-12');
 
 -- --------------------------------------------------------
 
@@ -134,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `points` (
 
 INSERT INTO `points` (`card_id`, `t_point`, `a_point`, `u_point`) VALUES
 (1231250, 100, 35, 65),
-(1231251, 26, 26, 0);
+(1231251, 1185, 1185, 0);
 
 -- --------------------------------------------------------
 
@@ -152,6 +151,36 @@ CREATE TABLE IF NOT EXISTS `rate` (
 
 INSERT INTO `rate` (`rates`) VALUES
 (100000);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reward`
+--
+
+CREATE TABLE IF NOT EXISTS `reward` (
+`no` int(11) NOT NULL,
+  `reward` varchar(255) NOT NULL,
+  `r_category` varchar(255) NOT NULL,
+  `point_used` int(11) NOT NULL,
+  `remarks` text NOT NULL,
+  `status` int(11) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `last_update` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `reward_category`
+--
+
+CREATE TABLE IF NOT EXISTS `reward_category` (
+`no` int(11) NOT NULL,
+  `r_category` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL,
+  `create_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -190,8 +219,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`, `logintime`) VALUES
-(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-11 08:47:50'),
-(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-11 08:47:50');
+(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-12 16:01:57'),
+(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-12 16:01:57');
 
 --
 -- Indexes for dumped tables
@@ -228,6 +257,18 @@ ALTER TABLE `points`
  ADD PRIMARY KEY (`card_id`);
 
 --
+-- Indexes for table `reward`
+--
+ALTER TABLE `reward`
+ ADD PRIMARY KEY (`no`);
+
+--
+-- Indexes for table `reward_category`
+--
+ALTER TABLE `reward_category`
+ ADD PRIMARY KEY (`no`);
+
+--
 -- Indexes for table `session`
 --
 ALTER TABLE `session`
@@ -262,7 +303,17 @@ MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `point_log`
 --
 ALTER TABLE `point_log`
-MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `reward`
+--
+ALTER TABLE `reward`
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `reward_category`
+--
+ALTER TABLE `reward_category`
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `session`
 --
