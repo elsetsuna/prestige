@@ -1,18 +1,20 @@
 <?php
 if ($_GET['module']=='setrate'){
-include "tprestige/srate.php";}
-    elseif ($_GET['module']=='tprestige'){
+    include "tprestige/srate.php";}
+elseif ($_GET['module']=='tprestige'){
     include "tprestige/tprestige.php";}
-        elseif ($_GET['module']=='checkpoint'){
+elseif ($_GET['module']=='checkpoint'){
     include "tprestige/checkpoint.php";}
-            elseif ($_GET['module']=='confirmcheckpoint'){
+elseif ($_GET['module']=='reward'){
+    include "reward/reward.php";}
+elseif ($_GET['module']=='confirmcheckpoint'){
     include "tprestige/confirmcheckpoint.php";}
 elseif ($_GET['module']=='earnpoint'){
-  include "tprestige/earnpoint.php";}
-  elseif ($_GET['module']=='cearnpoint'){
-  include "tprestige/cearnpoint.php";}
-    elseif ($_GET['module']=='checkearnpoint'){
-  include "tprestige/checkearnpoint.php";}
+    include "tprestige/earnpoint.php";}
+elseif ($_GET['module']=='cearnpoint'){
+    include "tprestige/cearnpoint.php";}
+elseif ($_GET['module']=='checkearnpoint'){
+    include "tprestige/checkearnpoint.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }
