@@ -7,6 +7,8 @@ elseif ($_GET['module']=='checkpoint'){
     include "tprestige/checkpoint.php";}
 elseif ($_GET['module']=='reward'){
     include "reward/reward.php";}
+elseif ($_GET['module']=='reward_category'){
+    include "reward/rcategory.php";}
 elseif ($_GET['module']=='confirmcheckpoint'){
     include "tprestige/confirmcheckpoint.php";}
 elseif ($_GET['module']=='earnpoint'){
