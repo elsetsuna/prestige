@@ -56,19 +56,30 @@ input{
   -moz-border-radius: 3px;
   border-radius: 3px;
 }
+table.dataTable tbody td{padding:1px 1px}
 </style>
 </head>';
 include "nav.php";
 echo '
 <div class="container">
 <div class="row">
-<div class="span5">
+<div class="span3">
 <div class="bg-warning col-md-3 col-md-offset-1 ">
-        <h1>Create Reward Category</h1>
+        <h2>Create Reward Category</h2>
         <p>Input reward category name</p>
         <div class="input-group col-md-4 ">
-  
   <form action="" method="post">
+  <select name="cat">
+  '; ?>
+  <?php
+    $getcat = mysql_query("SELECT * FROM reward_category WHERE status='1'");
+    $rowcat = mysql_num_rows($getcat);
+    for ($cat=0;$cat<$rowcat;$cat++){
+     $getnamecat = mysql_result($getcat,$cat, 'r_category'); 
+       echo '<option value="'.$getnamecat.'">'.$getnamecat.'</option>';
+    }
+  echo '
+     </select><br>
   <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
 </div>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
@@ -77,7 +88,7 @@ echo '
       </div>
 
       </div>
-      <div class="span7">
+      <div class="span9">
           <div class="widget">
             <div class="widget-header"> <i class="icon-bookmark"></i>
               <h3>Reward Category Summary</h3>
@@ -87,35 +98,40 @@ echo '
 <table id="myTable" class="table table-striped">  
         <thead>  
           <tr  height="3">  
-            <th width="25" class="dt-center">No.</th>  
+            <th class="dt-center" >No.</th>  
+            <th class="dt-center">Reward</th>  
             <th class="dt-center">Reward Category</th>  
-            <th class="dt-center">Created Time</th>  
-            <th class="dt-center">Status</th>
+            <th class="dt-center">Point</th>
+            <th class="dt-center">Remarks</th>
+            <th class="dt-center">Create Time</th>
+            <th class="dt-center">Last Update</th>
             <th width="5"></th>
           </tr>  
         </thead>  
         <tbody>';
-$countcat=mysql_query("SELECT * FROM reward_category WHERE status='1'");
-$countcatrow=mysql_num_rows($countcat);
+$countrew=mysql_query("SELECT * FROM reward WHERE status='1'");
+$countrewrow=mysql_num_rows($countrew);
 $no = "1";
-for ($c=0;$c<$countcatrow;$c++){
+for ($c=0;$c<$countrewrow;$c++){
     while($x<=$c){
       $x++;
     }
-  $catname = mysql_result($countcat,$c, 'r_category');
-  $catcreate = mysql_result($countcat,$c, 'create_time');
-  $catstat = mysql_result($countcat,$c, 'status');
+  $rewname = mysql_result($countrew,$c, 'reward');
+  $rewcat = mysql_result($countrew,$c, 'r_category');
+  $rewpoint = mysql_result($countrew,$c, 'point_used');
+  $rewremarks = mysql_result($countrew,$c,'remarks');
+  $rewcreate = mysql_result($countrew,$c,'create_time');
+  $rewupdate = mysql_result($countrew,$c,'last_update');
 	echo " 
 	          <tr>  
  <Td class='dt-center'>$x</td>
-  <Td class='dt-center'>$catname</td>
-   <Td class='dt-center'>$catcreate</td>
-    <Td class='dt-center'>";
-    if ($catstat ==1){
-    	echo 'Aktif';
-    } 
+  <Td class='dt-center'>$rewname</td>
+   <Td class='dt-center'>$rewcat</td>
+      <Td class='dt-center'>$rewpoint</td>
+         <Td class='dt-center'>$rewremarks</td>
+            <Td class='dt-center'>$rewcreate</td>
+               <Td class='dt-center'>$rewupdate</td>";
     echo '
-    </td>
     <td class="dt-center"><form action="" method="post" style="margin: -15px 0px -15px 0px;">
     	<input type="hidden" name="deleteItem" id="deleteItem" value="'.$catname.'" />
 <button class="btn btn-danger btn-xs" type="submit" name="submit">x</button>
