@@ -63,19 +63,22 @@ echo '
 <div class="container">
 <div class="row">
 <div class="span5">
-<div class="bg-warning col-md-3 col-md-offset-1 ">
-        <h1>Create Reward Category</h1>
+          <div class="widget">
+            <div class="widget-header"> <i class="icon-th-list"></i>
+               <h3>Add Reward Category</h3>
+            </div>
+            <div class="widget-content">
         <p>Input reward category name</p>
         <div class="input-group col-md-4 ">
   
   <form action="" method="post">
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
-</div>
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
+</div>
         </p>
       </div>
-
+</div>
       </div>
       <div class="span7">
           <div class="widget">

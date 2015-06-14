@@ -64,10 +64,11 @@ echo '
 <div class="container">
 <div class="row">
 <div class="span3">
-<div class="bg-warning col-md-3 col-md-offset-1 ">
-        <h2>Create Reward Category</h2>
-        <p>Input reward category name</p>
-        <div class="input-group col-md-4 ">
+<div class="widget">
+            <div class="widget-header"><i class="icon-gift"></i>
+              <h3>Add Reward</h3>
+            </div>
+            <div class="widget-content">
   <form action="" method="post">
   <select name="cat">
   '; ?>
@@ -81,17 +82,16 @@ echo '
   echo '
      </select><br>
   <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
-</div>
-<button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
+  <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
+</div>
         </p>
       </div>
-
       </div>
       <div class="span9">
           <div class="widget">
             <div class="widget-header"> <i class="icon-bookmark"></i>
-              <h3>Reward Category Summary</h3>
+              <h3>Reward Summary</h3>
             </div>
             <!-- /widget-header -->
             <div class="widget-content">
