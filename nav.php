@@ -36,6 +36,7 @@ echo '
             <ul class="dropdown-menu">
 <li><a href="?module=reward_category">Create Reward Category</a></li>
 <li><a href="?module=addreward"> Create Reward </a></li>
+<li><a href="?module=signonreward">Create Sign-On Reward</a></li>
             </ul>
         </li>
         <li ><a href="?module=card"><i class="icon-credit-card"></i><span>Cards</span></a></li>
