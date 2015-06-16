@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 16, 2015 at 08:23 AM
+-- Generation Time: Jun 16, 2015 at 09:17 PM
 -- Server version: 5.5.39
 -- PHP Version: 5.4.31
 
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `card` (
   `card_owner` varchar(255) NOT NULL,
   `status` int(11) NOT NULL,
   `signon_bonus` int(11) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Dumping data for table `card`
@@ -57,7 +57,9 @@ INSERT INTO `card` (`id`, `card_id`, `card_owner`, `status`, `signon_bonus`) VAL
 (16, 1231253, '', 1, 0),
 (17, 1231254, '', 1, 1),
 (18, 1231255, '', 1, 1),
-(19, 1231256, '', 1, 0);
+(19, 1231256, '', 1, 0),
+(20, 1231257, '', 1, 1),
+(21, 1231258, '', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -144,7 +146,9 @@ INSERT INTO `points` (`card_id`, `t_point`, `a_point`, `u_point`) VALUES
 (1231253, 0, 0, 0),
 (1231254, 0, 0, 0),
 (1231255, 0, 0, 0),
-(1231256, 0, 0, 0);
+(1231256, 0, 0, 0),
+(1231257, 0, 0, 0),
+(1231258, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -238,16 +242,44 @@ INSERT INTO `session` (`ssid_id`, `ssid`) VALUES
 CREATE TABLE IF NOT EXISTS `signon` (
 `no` int(11) NOT NULL,
   `card_id` int(11) NOT NULL,
+  `reward` varchar(255) NOT NULL,
   `bonus_status` int(11) NOT NULL COMMENT '1=claimed , 0=unclaimed',
   `claim_date` date NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
 --
 -- Dumping data for table `signon`
 --
 
-INSERT INTO `signon` (`no`, `card_id`, `bonus_status`, `claim_date`) VALUES
-(1, 1231255, 0, '0000-00-00');
+INSERT INTO `signon` (`no`, `card_id`, `reward`, `bonus_status`, `claim_date`) VALUES
+(2, 1231257, 'keychain', 1, '2015-06-17'),
+(3, 1231257, 'tahu sambel', 1, '2015-06-17'),
+(4, 1231258, 'keychain', 1, '2015-06-17'),
+(5, 1231258, 'tahu sambel', 0, '0000-00-00'),
+(6, 1231258, 'free parking', 0, '0000-00-00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `signon_reward`
+--
+
+CREATE TABLE IF NOT EXISTS `signon_reward` (
+`no` int(11) NOT NULL,
+  `reward` varchar(255) NOT NULL,
+  `point_used` int(11) NOT NULL,
+  `remarks` text NOT NULL,
+  `status` int(11) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `signon_reward`
+--
+
+INSERT INTO `signon_reward` (`no`, `reward`, `point_used`, `remarks`, `status`) VALUES
+(1, 'keychain', 0, 'sadsaasdasdasdda', 1),
+(4, 'tahu sambel', 1, 'tahu sambel piring kecil', 1),
+(5, 'free parking', 0, 'free parking satu kali', 1);
 
 -- --------------------------------------------------------
 
@@ -268,8 +300,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `user_name`, `user_password_hash`, `user_email`, `logintime`) VALUES
-(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-16 05:24:02'),
-(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-16 05:24:02');
+(1, 'qwe', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'qwe@asd.com', '2015-06-16 08:05:19'),
+(2, 'marvin', '$2y$10$0R9FJfyLUMqUETEruEaWa.S7Ik1UGRzbeY5iLyeI/FLvMTunXzStK', 'vnz_inside@aol.com', '2015-06-16 08:05:19');
 
 --
 -- Indexes for dumped tables
@@ -330,6 +362,12 @@ ALTER TABLE `signon`
  ADD PRIMARY KEY (`no`);
 
 --
+-- Indexes for table `signon_reward`
+--
+ALTER TABLE `signon_reward`
+ ADD PRIMARY KEY (`no`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -343,7 +381,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `card`
 --
 ALTER TABLE `card`
-MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
+MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=22;
 --
 -- AUTO_INCREMENT for table `member`
 --
@@ -378,7 +416,12 @@ MODIFY `ssid_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 -- AUTO_INCREMENT for table `signon`
 --
 ALTER TABLE `signon`
-MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT for table `signon_reward`
+--
+ALTER TABLE `signon_reward`
+MODIFY `no` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --

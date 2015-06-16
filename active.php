@@ -15,7 +15,12 @@ $kosong = true;
     if(empty($checkrow))
 {
   if ($signon == "1"){
-      mysql_query("INSERT INTO signon (card_id,bonus_status,claim_date)VALUES ('$cardid','0','0')");
+    $signq = mysql_query("SELECT * FROM signon_reward WHERE status='1'");
+    $signonrow = mysql_num_rows($signq);
+    for ($s=0;$s<$signonrow;$s++){
+      $sreward = mysql_result($signq,$s,'reward');
+     mysql_query("INSERT INTO signon (card_id,reward,bonus_status,claim_date)VALUES ('$cardid','$sreward','0','0')");
+    }
       mysql_query("INSERT INTO card (card_id,status,signon_bonus)VALUES ('$cardid','1','$signon')");
       mysql_query("INSERT INTO points (card_id,t_point,a_point,u_point)VALUES ('$cardid','0','0','0')");
   }else {
