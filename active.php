@@ -9,12 +9,21 @@ $kosong = true;
     // Database stuff here...
     // $result = mysql_query( ... )
     $cardid = $_POST['name'];
+    $signon = $_POST['signon'];
     $countrow=mysql_query("SELECT * FROM card WHERE card_id='$cardid'");
     $checkrow = mysql_fetch_row($countrow);
     if(empty($checkrow))
 {
-      mysql_query("INSERT INTO card (card_id,status)VALUES ('$cardid','1')");
+  if ($signon == "1"){
+      mysql_query("INSERT INTO signon (card_id,bonus_status,claim_date)VALUES ('$cardid','0','0')");
+      mysql_query("INSERT INTO card (card_id,status,signon_bonus)VALUES ('$cardid','1','$signon')");
       mysql_query("INSERT INTO points (card_id,t_point,a_point,u_point)VALUES ('$cardid','0','0','0')");
+  }else {
+
+      mysql_query("INSERT INTO card (card_id,status,signon_bonus)VALUES ('$cardid','1','$signon')");
+      mysql_query("INSERT INTO points (card_id,t_point,a_point,u_point)VALUES ('$cardid','0','0','0')");
+  }
+
 }
 
   }
@@ -57,23 +66,28 @@ include "nav.php";
 echo '
 <div class="container">
 <div class="row">
-<div class="span5">
+<div class="span4">
 <div class="bg-warning col-md-3 col-md-offset-1 ">
-        <h1>Create Card</h1>
+<div class="widget-header"><i class="icon-bookmark"></i>
+        <h3>Create Card</h3>
+</div>
+<div class="widget-content">
         <p>Input / Scan Card iD</p>
         <div class="input-group col-md-4 ">
   
   <form action="" method="post">
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
-  <br><font size="2">all created card are active by default</font>
+  <font size="2">all created card are active by default</font>
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
+<input type="checkbox" id="signon" name="signon" value="1"> <b>Will this card get Signon Bonus</b></input>
+<br>
 </div>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
         </p>
       </div>
-
+</div>
       </div>
-      <div class="span7">
+      <div class="span8">
           <div class="widget">
             <div class="widget-header"> <i class="icon-bookmark"></i>
               <h3>Card List</h3>

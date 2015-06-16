@@ -14,12 +14,15 @@ $kosong = true;
 
     // Database stuff here...
     // $result = mysql_query( ... )
-    $cat_name = $_POST['name'];
-    $countrow=mysql_query("SELECT * FROM reward_category WHERE r_category='$cat_name' and status='1'");
+    $rew_name = $_POST['name'];
+    $cat_name = $_POST['cat'];
+    $point = $_POST['point'];
+    $remarks = $_POST['remarks'];
+    $countrow=mysql_query("SELECT * FROM reward WHERE reward='$rew_name' and status='1'");
     $checkrow = mysql_fetch_row($countrow);
     if(empty($checkrow))
 {
-      mysql_query("INSERT INTO reward_category (r_category,status,create_time)VALUES ('$cat_name','1',curdate())");
+      mysql_query("INSERT INTO reward (reward,r_category,point_used,remarks,status,create_time,last_update)VALUES ('$rew_name','$cat_name','$point','$remarks','1',curdate(),curdate())");
 }
 
   }
@@ -27,13 +30,13 @@ $kosong = true;
   <?php
     if( $posted ) {
       if( $kosong) {
-        echo "<script type='text/javascript'>alert('Harap diisi nama category yg diinginkan')</script>";
+        echo "<script type='text/javascript'>alert('Harap diisi form yang kosong')</script>";
       }
       elseif ($checkrow ==""){
         echo "<script type='text/javascript'>alert('submitted successfully!')</script>";
 
       }else {
-         echo "<script type='text/javascript'>alert('failed! or category dengan nama yg sama telah ada!')</script>";
+         echo "<script type='text/javascript'>alert('failed! or reward dengan nama yg sama telah ada!')</script>";
       }
     }
   ?>
@@ -70,6 +73,7 @@ echo '
             </div>
             <div class="widget-content">
   <form action="" method="post">
+  Reward Category
   <select name="cat">
   '; ?>
   <?php
@@ -81,7 +85,12 @@ echo '
     }
   echo '
      </select><br>
+     Reward Name
   <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
+  Point needed
+  <input type="text" class="form-control" aria-label="point" id="point" name="point">
+  Remarks
+   <textarea class="form-control" rows="5" id="remarks" name="remarks"></textarea>
   <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
 </div>

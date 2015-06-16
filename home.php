@@ -5,8 +5,6 @@ elseif ($_GET['module']=='tprestige'){
     include "tprestige/tprestige.php";}
 elseif ($_GET['module']=='checkpoint'){
     include "tprestige/checkpoint.php";}
-elseif ($_GET['module']=='reward'){
-    include "reward/reward.php";}
 elseif ($_GET['module']=='reward_category'){
     include "reward/rcategory.php";}
 elseif ($_GET['module']=='addreward'){
@@ -19,6 +17,8 @@ elseif ($_GET['module']=='cearnpoint'){
     include "tprestige/cearnpoint.php";}
 elseif ($_GET['module']=='checkearnpoint'){
     include "tprestige/checkearnpoint.php";}
+elseif ($_GET['module']=='signon'){
+    include "tprestige/signon.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }
