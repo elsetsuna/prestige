@@ -79,7 +79,7 @@ echo '
   <form action="" method="post">
   <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
   Input How many points this reward cost
-  <input type="text" class="form-control" aria-label="point" id="point" name="point"><br>
+  <input type="text" class="form-control" aria-label="point" id="point" name="point" disabled="disabled"><br>
   Remarks<br>
   <textarea class="form-control" rows="3" id="remarks" name="remarks"></textarea><br>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
@@ -90,6 +90,11 @@ echo '
 </div>
       </div>
       <div class="span8">
+      <div class="widget">
+            <div class="widget-header"> <i class="icon-th-list"></i>
+               <h3>Signon Reward Summary</h3>
+            </div>
+            <div class="widget-content">
 <table class="table table-bordered table-hover">  
         <thead>  
           <tr  height="3">  
