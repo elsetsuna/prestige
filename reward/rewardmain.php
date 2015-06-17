@@ -40,6 +40,18 @@ $kosong = true;
       }
     }
   ?>
+  <script>
+  $(document).on( "click", '.edit_button',function() {
+
+        var rname = $(this).data('rname');
+        var rpoint = $(this).data('rpoint');
+        var rremarks = $(this).data('rremarks');
+
+        $(".modal-body #rname").val(rname);
+        $(".modal-body #rpoint").val(rpoint);
+        $(".modal-body #rremarks").val(rremarks);
+    });
+</script>
 <?php
 //echo "udah di file srate.php";
 echo '
@@ -115,6 +127,7 @@ echo '
             <th class="dt-center">Create Time</th>
             <th class="dt-center">Last Update</th>
             <th width="5"></th>
+            <th width="5"></th>
           </tr>  
         </thead>  
         <tbody>';
@@ -141,9 +154,12 @@ for ($c=0;$c<$countrewrow;$c++){
             <Td class='dt-center'>$rewcreate</td>
                <Td class='dt-center'>$rewupdate</td>";
     echo '
+    <td class="dt-center">
+    <button class="btn btn-info edit_button" type="submit" name="submit" data-toggle="modal" data-target="#myModal" data-rname="'.$rewname.'" data-rpoint="'.$rewpoint.'" data-rremarks="'.$rewremarks.'">
+    <span style="font-size:1.5em;" class="icon-edit"></span></button></td>
     <td class="dt-center"><form action="" method="post" style="margin: -15px 0px -15px 0px;">
     	<input type="hidden" name="deleteItem" id="deleteItem" value="'.$catname.'" />
-<button class="btn btn-danger btn-xs" type="submit" name="submit">x</button>
+<button class="btn btn-danger" type="submit" name="submit" data-toggle="modal" data-target="#myModal"><span style="font-size:1.5em;" class="icon-trash"></span></button>
     </form>
     </td>
           </tr>  ';
@@ -156,5 +172,50 @@ echo '
           <!-- /widget -->
         </div>
         <!-- /span6 --> 
-              </div></div>';
+              </div></div>
+ <!-- Modal for Edit button -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-    labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Edit Reward</h4>
+      </div>
+      <form method="post" action="">
+          <div class="modal-body">
+              <div class="form-group">
+              Reward Name <br>
+                <input class="form-control" name="rname" id="rname" placeholder="Enter Skill" required>
+              </div>
+              <div class="form-group">
+              Reward Category<br>
+ <select name="cat">
+  '; ?>
+  <?php
+    $getcat = mysql_query("SELECT * FROM reward_category WHERE status='1'");
+    $rowcat = mysql_num_rows($getcat);
+    for ($cat=0;$cat<$rowcat;$cat++){
+     $getnamecat = mysql_result($getcat,$cat, 'r_category'); 
+       echo '<option value="'.$getnamecat.'">'.$getnamecat.'</option>';
+    }
+  echo '
+     </select>
+              </div>
+              <div class="form-group">
+                  <label for="heading">Remarks</label>
+                  <textarea  name="rremarks" id="rremarks"></textarea>
+              </div>
+              <div class="form-group">
+              Point need<br>
+                <input class="form-control " name="rpoint" id="rpoint" placeholder="Enter Quote" required>
+              </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+      </form>
+    </div>
+  </div>
+    </div> ';
 ?>

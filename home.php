@@ -19,8 +19,10 @@ elseif ($_GET['module']=='checkearnpoint'){
     include "tprestige/checkearnpoint.php";}
 elseif ($_GET['module']=='signon'){
     include "tprestige/signon.php";}
-    elseif ($_GET['module']=='signonreward'){
+elseif ($_GET['module']=='signonreward'){
     include "reward/rewardsignon.php";}
+elseif ($_GET['module']=='modal'){
+    include "modal.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }
