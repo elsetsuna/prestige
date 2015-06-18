@@ -1,4 +1,16 @@
 <?php
+if(isset($_POST['rname']))
+{
+  $urname = $_POST['rname'];
+  $urcat = $_POST['rcat'];
+  $urremarks = $_POST['rremarks'];
+  $urpoint = $_POST['rpoint'];
+  $urno = $_POST['rno'];
+
+  //echo ''.$_POST['rno'].'';
+  //echo 'asdas';
+  mysql_query("UPDATE reward SET reward='$urname',r_category='$urcat',point_used='$urpoint',remarks='$urremarks',last_update=curdate() WHERE no='$urno'");
+}
 if(isset($_POST['deleteItem']))
 {
 	$delitem = $_POST['deleteItem'];
@@ -43,10 +55,12 @@ $kosong = true;
   <script>
   $(document).on( "click", '.edit_button',function() {
 
+        var rno = $(this).data('rno');
         var rname = $(this).data('rname');
         var rpoint = $(this).data('rpoint');
         var rremarks = $(this).data('rremarks');
 
+        $(".modal-body #rno").val(rno);
         $(".modal-body #rname").val(rname);
         $(".modal-body #rpoint").val(rpoint);
         $(".modal-body #rremarks").val(rremarks);
@@ -138,6 +152,7 @@ for ($c=0;$c<$countrewrow;$c++){
     while($x<=$c){
       $x++;
     }
+  $rno = mysql_result($countrew, $c,'no');
   $rewname = mysql_result($countrew,$c, 'reward');
   $rewcat = mysql_result($countrew,$c, 'r_category');
   $rewpoint = mysql_result($countrew,$c, 'point_used');
@@ -155,7 +170,7 @@ for ($c=0;$c<$countrewrow;$c++){
                <Td class='dt-center'>$rewupdate</td>";
     echo '
     <td class="dt-center">
-    <button class="btn btn-info edit_button" type="submit" name="submit" data-toggle="modal" data-target="#myModal" data-rname="'.$rewname.'" data-rpoint="'.$rewpoint.'" data-rremarks="'.$rewremarks.'">
+    <button class="btn btn-info edit_button" type="submit" name="submit" data-toggle="modal" data-target="#myModal" data-rno="'.$rno.'" data-rname="'.$rewname.'" data-rpoint="'.$rewpoint.'" data-rremarks="'.$rewremarks.'">
     <span style="font-size:1.5em;" class="icon-edit"></span></button></td>
     <td class="dt-center"><form action="" method="post" style="margin: -15px 0px -15px 0px;">
     	<input type="hidden" name="deleteItem" id="deleteItem" value="'.$catname.'" />
@@ -189,7 +204,7 @@ echo '
               </div>
               <div class="form-group">
               Reward Category<br>
- <select name="cat">
+ <select name="rcat">
   '; ?>
   <?php
     $getcat = mysql_query("SELECT * FROM reward_category WHERE status='1'");
@@ -208,6 +223,9 @@ echo '
               <div class="form-group">
               Point need<br>
                 <input class="form-control " name="rpoint" id="rpoint" placeholder="Enter Quote" required>
+              </div>
+              <div class="form-group">
+                <input type="hidden" class="form-control " name="rno" id="rno" >
               </div>
           </div>
           <div class="modal-footer">
