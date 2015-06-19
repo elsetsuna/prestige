@@ -26,10 +26,10 @@ self.location='?module=redeemreward&cat=' + val + '&card=' + car ;
 </script>
 </head>
 <?php
-
   $cat=$_GET['cat'];
   $carid = $_GET['card'];
   $cardid=$_POST['cardid'];
+  echo ''.$carid.'';
 $quer2=mysql_query("SELECT * FROM reward_category WHERE status='1'"); 
 
 if(isset($cat)){
@@ -40,9 +40,6 @@ if(isset($cat)){
 
 include "nav.php";
 //echo ''.$cat.'';
-if($cardid != 0 or $carid !=0)
-
-{
 echo '
 <div class="container">
 <div class="row">
@@ -52,7 +49,7 @@ echo '
               <h3>Redeem Reward</h3>
             </div>
             <div class="widget-content">
-<form method="post" name="f1" action="?module=redeem">';
+<form method="post" name="f1" action="">';
 echo "1. Please Select Reward Category<Br><select name='cat' onchange=\"reload(this.form)\">
       <option value=''>Select Reward Category</option>";
 $rowcat = mysql_num_rows($quer2);
@@ -74,33 +71,12 @@ for ($sc=0;$sc<$rowsubcat;$sc++){
 echo  '<option value="'.$getsubcat.'">'.$getsubcat.' &nbsp;('.$getsubcatp.'points)</option>';
 }
 echo '</select><br>3. Please input reward quantity<br>
-      <input type="hidden" id="card" name="card" value="'.$carid.'"></input>
       <input type="text" class="form-control" id="qty" name="qty"></input><br>
       <button class="btn btn-primary btn-large" type="submit" name="submit">Redeem</button>
 </form>';
-echo '</div></div></div>';
-}else{
-echo '
-<div class="container">
-<div class="row">
-<div class="span6">
-          <div class="widget">
-            <div class="widget-header"> <font size="5" face="calibri"><i class="icon-search" style="font-size: 25px"></i>
-               &nbsp;Redeem Reward</font>
-            </div>
-            <div class="widget-content">
 
-        <div class="input-group col-md-4 ">
-  <form action="" method="post">
-<span><font size="3">Please Scan or Input Card number.</font></span><br>
-<input type="text" class="form-control span5" aria-label="Card id" id="cardid" name="cardid">
-</div>
-<button class="btn btn-primary btn-large" type="submit" name="submit">Submit</button>
-</form>
-        </p>
-                    <!-- /widget-content --> 
-          </div></div></div> ';
-}
+
+echo '</div></div></div>';
 ?>
 
 <?php

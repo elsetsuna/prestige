@@ -19,14 +19,6 @@ input{
 </style>
 </head>';
 include "nav.php";
-$cat = $_POST['cat'];
-$subcat = $_POST['subcat'];
-$quantity = $_POST['qty'];
-$card = $_POST['card'];
-echo ''.$cat.'';
-echo ''.$subcat.'';
-echo ''.$quantity.'';
-echo ''.$card.'';
 echo '
 <div class="container">
 <div class="row">
@@ -37,7 +29,14 @@ echo '
             </div>
             <div class="widget-content">
 
-       
+        <div class="input-group col-md-4 ">
+  <form action="?module=redeemreward" method="post">
+<span><font size="3">Please Scan or Input Card number.</font></span><br>
+<input type="text" class="form-control span5" aria-label="Card id" id="cardid" name="cardid">
+</div>
+<button class="btn btn-primary btn-large" type="submit" name="submit">Submit</button>
+</form>
+        </p>
                     <!-- /widget-content --> 
           </div></div></div> ';?>
 <?php
