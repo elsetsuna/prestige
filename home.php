@@ -23,6 +23,8 @@ elseif ($_GET['module']=='signonreward'){
     include "reward/rewardsignon.php";}
 elseif ($_GET['module']=='redeemreward'){
     include "tprestige/redeemreward.php";}
+    elseif ($_GET['module']=='redeem'){
+    include "tprestige/redeem.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }

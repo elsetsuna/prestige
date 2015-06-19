@@ -19,13 +19,17 @@ input{
 function reload(form)
 {
 var val=form.cat.options[form.cat.options.selectedIndex].value;
-self.location='?module=redeemreward&cat=' + val ;
+var car=form.cat.options[form.cat.options.selectedIndex].id;
+self.location='?module=redeemreward&cat=' + val + '&card=' + car ;
 }
 
 </script>
 </head>
 <?php
-$cat=$_GET['cat'];
+  $cat=$_GET['cat'];
+  $carid = $_GET['card'];
+  $cardid=$_POST['cardid'];
+  echo ''.$carid.'';
 $quer2=mysql_query("SELECT * FROM reward_category WHERE status='1'"); 
 
 if(isset($cat)){
@@ -52,10 +56,10 @@ $rowcat = mysql_num_rows($quer2);
 for ($rc=0;$rc<$rowcat;$rc++){
   $getnamecat = mysql_result($quer2,$rc,'r_category');
 if($getnamecat==$cat){
-  echo '<option selected value="'.$getnamecat.'">'.$getnamecat.'</option><BR>';
+  echo '<option selected value="'.$getnamecat.'" >'.$getnamecat.'</option><BR>';
 }
 else{
-  echo  '<option value="'.$getnamecat.'">'.$getnamecat.'</option>';}
+  echo  '<option value="'.$getnamecat.'" id="'.$cardid.'">'.$getnamecat.'</option>';}
 }
 
   echo "</select><br>";
