@@ -77,7 +77,7 @@ echo '
         <div class="input-group col-md-4 ">
   
   <form action="" method="post">
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name" required><br>
   Input How many points this reward cost
   <input type="text" class="form-control" aria-label="point" id="point" name="point" disabled="disabled"><br>
   Remarks<br>

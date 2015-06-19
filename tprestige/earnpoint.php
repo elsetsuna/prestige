@@ -33,12 +33,12 @@ echo '
   
   <form action="?module=cearnpoint" method="post">
 
-  <span><font size="3">invoice Number </font></span><br>
-  <input type="text" class="form-control span5" aria-label="Card id" id="invoiceno" name="invoiceno"><br>
-  <span> <font size="3">Sales Amount </font></span><br>
-  <input type="text" class="form-control span5" aria-label="Card id" id="amount" name="amount"><br>
-  <span> <font size="3">Input / Scan Card </font></span><br>
-  <input type="text" class="form-control span5" aria-label="Card id" id="card" name="card">
+  <span><font size="3">1. Input invoice Number </font></span><br>
+  <input type="text" class="form-control span5" aria-label="Card id" id="invoiceno" name="invoiceno" required><br>
+  <span> <font size="3">2. Input Total Sales Amount </font></span><br>
+  <input type="text" class="form-control span5" aria-label="Card id" id="amount" name="amount" required><br>
+  <span> <font size="3">3. Input / Scan Card </font></span><br>
+  <input type="text" class="form-control span5" aria-label="Card id" id="card" name="card" required>
 </div>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Submit</button>
 </form>

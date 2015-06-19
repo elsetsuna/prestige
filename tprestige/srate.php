@@ -50,7 +50,7 @@ echo '<div class="container">
   
   <form action="" method="post">
   <span class="input-group-addon"><font size="5">Rp</font></span>
-  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="name" name="name">
+  <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" id="name" name="name" required>
 </div>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Submit</button>
 </form>

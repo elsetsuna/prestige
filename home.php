@@ -1,16 +1,12 @@
 <?php
 if ($_GET['module']=='setrate'){
     include "tprestige/srate.php";}
-elseif ($_GET['module']=='tprestige'){
-    include "tprestige/tprestige.php";}
 elseif ($_GET['module']=='checkpoint'){
     include "tprestige/checkpoint.php";}
 elseif ($_GET['module']=='reward_category'){
     include "reward/rcategory.php";}
 elseif ($_GET['module']=='addreward'){
     include "reward/rewardmain.php";}
-elseif ($_GET['module']=='confirmcheckpoint'){
-    include "tprestige/confirmcheckpoint.php";}
 elseif ($_GET['module']=='earnpoint'){
     include "tprestige/earnpoint.php";}
 elseif ($_GET['module']=='cearnpoint'){
@@ -23,8 +19,10 @@ elseif ($_GET['module']=='signonreward'){
     include "reward/rewardsignon.php";}
 elseif ($_GET['module']=='redeemreward'){
     include "tprestige/redeemreward.php";}
-    elseif ($_GET['module']=='redeem'){
-    include "tprestige/redeem.php";}
+elseif ($_GET['module']=='redeemlog'){
+    include "log/rlog.php";}
+elseif ($_GET['module']=='pointlog'){
+    include "log/plog.php";}
 elseif ($_GET['module']=='card'){
     include "active.php";
 }

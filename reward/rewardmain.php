@@ -112,11 +112,11 @@ echo '
   echo '
      </select><br>
      Reward Name
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name">
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name" required>
   Point needed
-  <input type="text" class="form-control" aria-label="point" id="point" name="point">
+  <input type="text" class="form-control" aria-label="point" id="point" name="point" required>
   Remarks
-   <textarea class="form-control" rows="5" id="remarks" name="remarks"></textarea>
+   <textarea class="form-control" rows="5" id="remarks" name="remarks" ></textarea>
   <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
 </div>

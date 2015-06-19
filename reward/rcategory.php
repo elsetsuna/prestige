@@ -72,7 +72,7 @@ echo '
         <div class="input-group col-md-4 ">
   
   <form action="" method="post">
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name" required><br>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
 </div>

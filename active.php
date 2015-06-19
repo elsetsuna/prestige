@@ -21,11 +21,11 @@ $kosong = true;
       $sreward = mysql_result($signq,$s,'reward');
      mysql_query("INSERT INTO signon (card_id,reward,bonus_status,claim_date)VALUES ('$cardid','$sreward','0','0')");
     }
-      mysql_query("INSERT INTO card (card_id,status,signon_bonus)VALUES ('$cardid','1','$signon')");
+      mysql_query("INSERT INTO card (card_id,status,signon_bonus,activated_date)VALUES ('$cardid','1','$signon',curdate())");
       mysql_query("INSERT INTO points (card_id,t_point,a_point,u_point)VALUES ('$cardid','0','0','0')");
   }else {
 
-      mysql_query("INSERT INTO card (card_id,status,signon_bonus)VALUES ('$cardid','1','$signon')");
+      mysql_query("INSERT INTO card (card_id,status,signon_bonus,activated_date)VALUES ('$cardid','1','$signon',curdate())");
       mysql_query("INSERT INTO points (card_id,t_point,a_point,u_point)VALUES ('$cardid','0','0','0')");
   }
 
@@ -77,17 +77,16 @@ echo '
         <h3>Create Card</h3>
 </div>
 <div class="widget-content">
-        <p>Input / Scan Card iD</p>
+<font size="3"><input type="checkbox" id="signon" name="signon" value="1"> 1. Will this card get Signon Bonus</input></font>
+<br><br>   
         <div class="input-group col-md-4 ">
-  
   <form action="" method="post">
-  <font size="2">all created card are active by default</font>
-  <input type="text" class="form-control" aria-label="Card id" id="name" name="name"><br>
-<input type="checkbox" id="signon" name="signon" value="1"> <b>Will this card get Signon Bonus</b></input>
-<br>
+   <font size="3">2.Input / Scan Card iD</font>
+  <input type="text" class="form-control" aria-label="Card id" id="name" name="name" required><br>
 </div>
 <button class="btn btn-primary btn-large" type="submit" name="submit">Create</button>
 </form>
+<br><font size="2">all created card are active by default</font>
         </p>
       </div>
 </div>
@@ -105,7 +104,9 @@ echo '
             <th>No.</th>  
             <th>Card id</th>  
             <th>Card Owner</th>  
-            <th>Status</th>  
+            <th>Status</th>
+            <th>Active Date</th>
+            <th>Signon Bonus</th>
           </tr>  
         </thead>  
         <tbody>';
@@ -120,18 +121,25 @@ for ($c=0;$c<$countcardrow;$c++){
   $cardid = mysql_result($countcard,$c, 'card_id');
   $cardowner = mysql_result($countcard,$c, 'card_owner');
   $cardstat = mysql_result($countcard,$c, 'status');
+  $adate = mysql_result($countcard,$c,'activated_date');
+  $sbonus = mysql_result($countcard,$c,'signon_bonus');
 	echo " 
 	          <tr>  
- <Td>$x</td>
-  <Td>$cardid</td>
-   <Td>$cardowner</td>
-    <Td>";
+ <Td class='dt-center'>$x</td>
+  <Td class='dt-center'>$cardid</td>
+   <Td class='dt-center'>$cardowner</td>
+    <Td class='dt-center'>";
     if ($cardstat ==1){
     	echo 'Aktif';
     } 
-    echo "
-    </td>
-          </tr>  ";
+    echo "</td><td class='dt-center'>$adate</td><td class='dt-center'>";
+    if ($sbonus ==1){
+      echo 'Yes';
+    }else {
+      echo 'No';
+    }
+
+    echo "</td></tr>  ";
 }
 echo '   
         </tbody>  
