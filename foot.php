@@ -5,10 +5,10 @@ echo '
 <script src="js/bootstrap.js"></script>
 <script src="js/signin.js"></script>
 <script src="table/jquery.dataTables.min.js"></script>
-
       <script>
 $(document).ready(function(){
     $(\'#myTable\').dataTable();
 });
-</script> </body>';
+</script>
+</body>';
 ?>

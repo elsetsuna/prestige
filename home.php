@@ -1,6 +1,14 @@
 <?php
 if ($_GET['module']=='setrate'){
     include "tprestige/srate.php";}
+elseif ($_GET['module']=='createmember'){
+    include "member/createmember.php";}
+elseif ($_GET['module']=='memberlist'){
+    include "member/memberlist.php";}
+elseif ($_GET['module']=='assigncard'){
+    include "member/assigncard.php";}
+elseif ($_GET['module']=='profilemember'){
+    include "member/profilemember.php";}
 elseif ($_GET['module']=='checkpoint'){
     include "tprestige/checkpoint.php";}
 elseif ($_GET['module']=='reward_category'){

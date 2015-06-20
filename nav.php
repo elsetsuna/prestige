@@ -38,7 +38,12 @@ echo '
         <li><a href="?module=setrate">Set Rate</a></li>
         </ul>
         </li>
-        <li><a href="#"><i class="icon-group"></i><span>Membership</span> </a></li>
+        <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-group"></i><span>Membership</span> </a>
+        <ul class="dropdown-menu">
+        <li><a href="?module=createmember">Create Member</a></li>
+        <li><a href="?module=memberlist">Member Summary</a></li>
+        </ul>
+        </li>
         <li class="dropdown"><a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">
         <i class="icon-gift "></i><span>Rewards</span> </a> 
             <ul class="dropdown-menu">
