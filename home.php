@@ -89,10 +89,8 @@ echo '
             <!-- /widget-header -->
             <div class="widget-content">
               <div class="shortcuts"> <a href="?module=earnpoint" class="shortcut"><i class="shortcut-icon icon-star-empty"></i><span
-                                        class="shortcut-label">Earn Point</span> </a><a href="javascript:;" class="shortcut"><i
-                                            class="shortcut-icon icon-bookmark"></i><span class="shortcut-label">Bookmarks</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-signal"></i> <span class="shortcut-label">Reports</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-comment"></i><span class="shortcut-label">Comments</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-user"></i><span
-                                                class="shortcut-label">Users</span> </a><a href="javascript:;" class="shortcut"><i
-                                                    class="shortcut-icon icon-file"></i><span class="shortcut-label">Notes</span> </a><a href="javascript:;" class="shortcut"><i class="shortcut-icon icon-picture"></i> <span class="shortcut-label">Photos</span> </a><a href="javascript:;" class="shortcut"> <i class="shortcut-icon icon-tag"></i><span class="shortcut-label">Tags</span> </a> </div>
+                                        class="shortcut-label">Earn Point</span> </a><a href="?module=checkpoint" class="shortcut"><i
+                                            class="shortcut-icon icon-search"></i><span class="shortcut-label">Check Point</span> </a><a href="?module=createmember" class="shortcut"><i class="shortcut-icon icon-user"></i> <span class="shortcut-label">Create Member</span> </a><a href="?module=card" class="shortcut"> <i class="shortcut-icon icon-credit-card"></i><span class="shortcut-label">Create Card</span> </a></div>
               <!-- /shortcuts --> 
             </div>
             <!-- /widget-content --> 

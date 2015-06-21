@@ -11,7 +11,6 @@ echo '
           <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><i
                             class="icon-user"></i>'; ?> <?php echo $_SESSION['user_name'];?> <?php echo '<b class="caret"> </b></a>
             <ul class="dropdown-menu">
-              <li><a href="javascript:;">Profile</a></li>
               <li><a href="?logout">Logout</a></li>
             </ul>
           </li>
